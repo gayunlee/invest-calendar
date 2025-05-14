@@ -5,8 +5,10 @@ export async function scrapeEconomicCalendarHTML() {
   const today = dayjs();
   const startDate = today.startOf("month").format("YYYY/MM/DD");
   const endDate = today.endOf("month").format("YYYY/MM/DD");
-
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
   const page = await browser.newPage();
 
   await page.goto("https://kr.investing.com/economic-calendar/", {

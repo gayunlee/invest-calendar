@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "postinstall": "npx playwright install"
+    "postinstall": "npx playwright install chromium"
   },
   "dependencies": {
     "cheerio": "^1.0.0",

@@ -9,7 +9,9 @@ app.use(express.json());
 
 app.get("/", async (req, res) => {
   try {
+    console.log("scraping calendar data...");
     const html = await scrapeEconomicCalendarHTML();
+    console.log("parsing html...");
     const data = parseEconomicCalendar(html);
     console.log("🔍 크롤링 완료: ", data.slice(0, 2) + "...");
     res.json(data);
